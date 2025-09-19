@@ -1,0 +1,26 @@
+/* Header.css */
+
+/* 오늘의 Plan😊 + 날짜 */
+.TodayBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.TodayBox .label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.TodayBox .date {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2196f3;
+}
+
+/* Todo List 🌱 제목 */
+h3 {
+  color: rgb(0, 0, 0);
+  margin: 0;
+}

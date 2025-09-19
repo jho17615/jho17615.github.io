@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- HTML5 문서 선언 -->
+<html lang="ko">
+  <!-- 문서 언어는 한국어 -->
+
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 문자 인코딩 UTF-8 설정 -->
+    <title>Todo List</title>
+    <!-- 탭에 표시될 제목 -->
+
+    <!-- 분리된 CSS 파일 4개 불러오기 -->
+    <link rel="stylesheet" href="App.css" />
+    <link rel="stylesheet" href="Header.css" />
+    <link rel="stylesheet" href="Editor.css" />
+    <link rel="stylesheet" href="List.css" />
+  </head>
+
+  <body>
+    <div class="App">
+      <!-- 전체를 감싸는 메인 컨테이너 -->
+
+      <!-- Header (오늘 날짜와 제목) -->
+      <div class="TodayBox">
+        <!-- 오늘 날짜 영역 -->
+        <div class="label"><strong>오늘의 Plan😊</strong></div>
+        <!-- 텍스트 -->
+        <div class="date" id="today-date"></div>
+        <!-- 오늘 날짜가 출력될 영역 -->
+      </div>
+
+      <!-- 할 일 입력창 + 버튼 -->
+      <div class="Editor">
+        <!-- 입력 및 추가 버튼을 포함한 영역 -->
+        <input type="text" id="todoInput" placeholder="새로운 todo" />
+        <!-- 할 일 입력 -->
+        <button>추가</button>
+        <!-- 클릭 시 입력된 할 일 추가 -->
+      </div>
+
+      <!-- Todo List 제목 -->
+      <div>
+        <h3><strong>Todo List 🌱</strong></h3>
+        <!-- 목록 상단 제목 -->
+      </div>
+
+      <!-- 검색창 + 할 일 목록 출력 -->
+      <div class="List">
+        <input type="text" id="keyword" placeholder="검색어를 입력하세요" />
+        <!-- 검색 입력창 -->
+        <div class="todos_wrapper" id="todoList"></div>
+        <!-- 할 일 목록이 동적으로 들어올 영역 -->
+      </div>
+    </div>
+
+    <!-- JavaScript 영역 -->
+    <script>
+      // 가상의 초기 데이터 배열 선언
+      let mockData = [
+        {
+          id: 0,
+          isDone: false,
+          content: "React 공부",
+          date: new Date().getTime(),
+        },
+        {
+          id: 1,
+          isDone: true,
+          content: "친구 만나기",
+          date: new Date().getTime(),
+        },
+        {
+          id: 2,
+          isDone: false,
+          content: "낮잠 자기",
+          date: new Date().getTime(),
+        },
+      ];
+
+      let idIndex = 3; // 새 할 일을 위한 고유 ID 증가용 인덱스
+
+      const dayNames = ["일", "월", "화", "수", "목", "금", "토"]; // 요일 배열
+
+      // 오늘 날짜를 출력하는 함수
+      function renderToday() {
+        const d = new Date(); // 현재 날짜
+        const yoil = dayNames[d.getDay()]; // 요일 구하기
+        const dateStr = `${d.getFullYear()}년 ${
+          d.getMonth() + 1
+        }월 ${d.getDate()}일 (${yoil})`;
+        document.getElementById("today-date").innerText = dateStr; // 화면에 날짜 출력
+      }
+
+      // 날짜를 'yyyy-mm-dd (요일)' 형식으로 변환
+      function formatDate(ms) {
+        const d = new Date(ms); // 밀리초를 Date로 변환
+        const yoil = dayNames[d.getDay()]; // 요일 구하기
+        return `${d.getFullYear()}-${
+          d.getMonth() + 1
+        }-${d.getDate()} (${yoil})`;
+      }
+
+      // 화면에 할 일 목록을 렌더링
+      function initData(data) {
+        const list = document.getElementById("todoList"); // 목록 영역 선택
+        list.innerHTML = ""; // 기존 목록 초기화
+        data.forEach((todo) => {
+          // 데이터 순회
+          const div = document.createElement("div"); // 하나의 할 일 박스 생성
+          div.className = "TodoItem"; // 클래스명 지정
+          div.innerHTML = `
+          <input type="checkbox" onchange="onUpdate(${todo.id})" ${
+            todo.isDone ? "checked" : ""
+          }>
+          <div class="content">${todo.content}</div>
+          <div class="date">${formatDate(todo.date)}</div>
+          <button onclick="todoDel(this)" value="${todo.id}">삭제</button>
+        `;
+          list.appendChild(div); // 리스트에 추가
+        });
+      }
+
+      // 추가 버튼 클릭 시 실행되는 함수
+      document.querySelector(".Editor button").onclick = (e) => {
+        e.preventDefault(); // 폼 제출 막기
+        const input = document.getElementById("todoInput"); // 입력 필드 선택
+        const content = input.value.trim(); // 앞뒤 공백 제거
+        if (!content) return alert("내용을 입력하세요"); // 빈값 경고
+        mockData.push({
+          // mockData에 새 항목 추가
+          id: idIndex++,
+          isDone: false,
+          content,
+          date: new Date().getTime(),
+        });
+        input.value = ""; // 입력창 초기화
+        initData(mockData); // 목록 다시 렌더링
+      };
+
+      // 체크박스 변경 시 완료 여부 토글
+      function onUpdate(id) {
+        mockData = mockData.map((todo) =>
+          todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+        );
+        initData(mockData); // 목록 갱신
+      }
+
+      // 삭제 버튼 클릭 시 해당 항목 제거
+      function todoDel(btn) {
+        const id = parseInt(btn.value); // 버튼 value에서 id 추출
+        mockData = mockData.filter((todo) => todo.id !== id); // 해당 id 제거
+        initData(mockData); // 목록 갱신
+      }
+
+      // 검색어 입력 시 실시간 필터링
+      document.getElementById("keyword").onkeyup = (e) => {
+        const result = getFilterData(e.target.value); // 검색어 기반 필터
+        initData(result); // 필터 결과 렌더링
+      };
+
+      // 검색어에 해당하는 할 일만 반환
+      function getFilterData(keyword) {
+        if (keyword === "") return mockData; // 공백이면 전체 반환
+        return mockData.filter((todo) => todo.content.includes(keyword)); // 포함된 항목만 필터
+      }
+
+      // 초기화: 날짜 + 목록 출력
+      window.onload = () => {
+        renderToday(); // 오늘 날짜 출력
+        initData(mockData); // 초기 목록 출력
+      };
+    </script>
+  </body>
+</html>
