@@ -21,12 +21,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 document.addEventListener("DOMContentLoaded", () => {
   const todoElements = document.querySelectorAll(".go-to-todo");
 
   todoElements.forEach((el) => {
     el.addEventListener("click", () => {
       open("TodoList/index.html", "_blank");
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const todoElements = document.querySelectorAll(".go-to-d");
+
+  todoElements.forEach((e2) => {
+    e2.addEventListener("click", () => {
+      window.open(
+        "https://github.com/jho17615/-MFC-Machine-Vision-Product-Defect-Detector",
+        "_blank"
+      );
     });
   });
 });
