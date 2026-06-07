@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Portfolio — Clean White</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --surface: #F8FAFC;
+      --surface-elevated: #F1F5F9;
+      --border: #E2E8F0;
+      --border-light: #CBD5E1;
+      --primary: #2563EB;
+      --primary-dim: #1D4ED8;
+      --text: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --accent-blue: #0EA5E9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 680px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 2.5rem 4rem;
+      gap: 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .hero-greeting {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title .line1 {
+      display: block;
+    }
+
+    .hero-title .line2 {
+      display: block;
+      color: var(--primary);
+    }
+
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .hero-em {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.8rem 2rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dim);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(37,99,235,0.05);
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-photo {
+      width: 380px;
+      height: 480px;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* ── Featured Projects ── */
+    .projects-section {
+      padding: 3rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      color: var(--primary);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .project-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-visual {
+      aspect-ratio: 16/10;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .project-visual::after {
+      content: "Project Screenshot";
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .project-visual img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-visual.colored {
+      background: linear-gradient(135deg, #EDE9FE 0%, #C4B5FD 50%, #DDD6FE 100%);
+    }
+
+    .project-visual.colored2 {
+      background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 50%, #BFDBFE 100%);
+    }
+
+    .project-visual.colored3 {
+      background: linear-gradient(135deg, #D1FAE5 0%, #6EE7B7 50%, #A7F3D0 100%);
+    }
+
+    .project-visual.colored4 {
+      background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 50%, #FDE68A 100%);
+    }
+
+    .project-visual.colored5 {
+      background: linear-gradient(135deg, #FCE7F3 0%, #F9A8D4 50%, #FBCFE8 100%);
+    }
+
+    .project-details {
+      margin-top: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .project-details summary {
+      padding: 0.65rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      background: var(--surface);
+      user-select: none;
+    }
+
+    .project-details summary:hover {
+      background: var(--surface-elevated);
+    }
+
+    .project-details-body {
+      padding: 0.85rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .detail-section h5 {
+      font-size: 0.72rem;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.35rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .detail-section p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .detail-section ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .detail-section ul li {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .detail-section ul li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .project-info h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-info p {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.75rem;
+    }
+
+    .meta-label {
+      color: var(--text-muted);
+      min-width: 80px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .meta-value {
+      color: var(--text-secondary);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .project-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+    }
+
+    .project-link:hover {
+      color: var(--primary-dim);
+    }
+
+    .project-link.secondary {
+      color: var(--text-secondary);
+    }
+
+    .project-link.secondary:hover {
+      color: var(--text);
+    }
+
+    /* ── About ── */
+    .about-section {
+      padding: 3rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: 24px;
+    }
+
+    .about-body {
+      max-width: 760px;
+    }
+
+    .about-body p {
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .about-value-item {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.85rem 1.25rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--primary);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .about-value-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 36px;
+    }
+
+    .about-value-desc {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+    }
+
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .about-link:hover {
+      color: var(--primary-dim);
+    }
+
+    /* ── Contact ── */
+    .contact-section {
+      padding: 3rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .contact-tagline {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 2rem;
+      max-width: 560px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+
+    .contact-row:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-key {
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .contact-val {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .contact-val.contact-link {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .contact-val.contact-link:hover {
+      color: var(--primary-dim);
+    }
+
+    .contact-socials {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .contact-social {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .contact-social:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(37,99,235,0.05);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      align-self: flex-start;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.9rem 2.5rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      letter-spacing: 0.02em;
+    }
+
+    .form-submit:hover {
+      background: var(--primary-dim);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+    }
+
+    /* ── Skills ── */
+    .skills-section {
+      padding: 3rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: 24px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .skill-cat-label {
+      font-size: 0.7rem;
+      color: var(--primary);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .skill-tag i {
+      font-size: 1rem;
+    }
+
+    .skill-tag img {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    /* ── Experience & Education ── */
+    .experience-section,
+    .education-section {
+      padding: 3rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 2rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-period {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 0.2rem;
+      line-height: 1.6;
+    }
+
+    .timeline-content h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .timeline-role {
+      font-size: 0.82rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-content ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .timeline-content ul li {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .timeline-content ul li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+    }
+
+    .courses-detail {
+      margin-top: 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .courses-detail summary {
+      padding: 1rem 1.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      background: var(--surface);
+      font-family: 'Inter', sans-serif;
+      user-select: none;
+    }
+
+    .courses-detail summary:hover {
+      color: var(--primary);
+    }
+
+    .courses-grid {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .course-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1rem;
+      align-items: baseline;
+    }
+
+    .course-cat {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+
+    .course-items {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── Awards ── */
+    .awards-section {
+      padding: 3rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: 24px;
+    }
+
+    .awards-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .awards-timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      align-items: center;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      transition: background 0.15s;
+    }
+
+    .awards-timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .awards-timeline-item:hover {
+      background: var(--surface-elevated);
+    }
+
+    .awards-timeline-item.is-award {
+      background: var(--bg);
+      border-left: 3px solid var(--primary);
+    }
+
+    .awards-timeline-item.is-award:hover {
+      background: var(--surface-elevated);
+    }
+
+    .awards-timeline-date {
+      padding: 1.1rem 1.25rem;
+      font-size: 0.74rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted);
+      border-right: 1px solid var(--border);
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+    }
+
+    .awards-timeline-item.is-award .awards-timeline-date {
+      border-right-color: var(--border-light);
+      color: var(--primary);
+    }
+
+    .awards-timeline-content {
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .awards-timeline-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .awards-timeline-sub {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+    }
+
+    .awards-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.55rem;
+      background: #EFF6FF;
+      color: var(--primary);
+      border: 1px solid #BFDBFE;
+      border-radius: 100px;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+
+    /* ── Slide Export Mode ── */
+    body.slide-export .hero { min-height: 660px; padding: 2rem 4rem; }
+    body.slide-export .hero-left { gap: 1rem; }
+    body.slide-export .hero-photo { width: 270px; height: 340px; }
+    body.slide-export .about-section,
+    body.slide-export .skills-section,
+    body.slide-export .projects-section,
+    body.slide-export .experience-section,
+    body.slide-export .education-section,
+    body.slide-export .awards-section,
+    body.slide-export .contact-section { padding-top: 2rem; padding-bottom: 2rem; }
+    body.slide-export .section-header { margin-bottom: 1.25rem; }
+    body.slide-export .skills-grid { gap: 1rem; }
+    body.slide-export .skill-tags { gap: 0.3rem; }
+    body.slide-export .skill-tag { padding: 0.2rem 0.65rem; font-size: 0.72rem; }
+
+    /* 프로젝트: 상단(이미지+헤더) / 하단(3열 상세) 레이아웃 */
+    body.slide-export .project-item {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: auto auto;
+      gap: 0.6rem 1.5rem;
+      padding: 1rem 0;
+      align-items: start;
+    }
+    body.slide-export .project-visual { grid-row: 1; grid-column: 1; }
+    body.slide-export .project-info  { grid-row: 1; grid-column: 2; }
+    body.slide-export .project-info h3 { font-size: 1.15rem; margin-bottom: 0.3rem; }
+    body.slide-export .project-info > p { font-size: 0.83rem; margin-bottom: 0.3rem; }
+    body.slide-export .project-meta { gap: 0.15rem; margin-bottom: 0.3rem; }
+    body.slide-export .meta-row { font-size: 0.74rem; }
+    body.slide-export .project-links { margin-bottom: 0; }
+
+    /* 상세: 전체 너비 3열, 배경·담당 단락 섹션 숨김 */
+    body.slide-export .project-details {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      display: block !important;
+      border: none;
+      margin-top: 0;
+    }
+    body.slide-export .project-details summary { display: none; }
+    body.slide-export .project-details-body {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: start;
+      gap: 0 0.9rem;
+      border-top: 1px solid var(--border);
+      padding: 0.45rem 0 0;
+    }
+    body.slide-export .project-details-body .detail-section:has(p) { display: none; }
+    body.slide-export .detail-section { align-self: start; }
+    body.slide-export .detail-section h5 {
+      font-size: 0.68rem; font-weight: 700;
+      color: var(--primary); margin-bottom: 0.2rem;
+      padding-bottom: 0.12rem;
+      border-bottom: 1px solid var(--border);
+    }
+    body.slide-export .detail-section ul { gap: 0.06rem; }
+    body.slide-export .detail-section ul li { font-size: 0.7rem; line-height: 1.36; }
+    body.slide-export .detail-section ul li:nth-child(n+6) { display: none; }
+
+    body.slide-export .timeline-item { padding: 0.85rem 0; }
+    body.slide-export .timeline-content h4 { font-size: 0.9rem; }
+    body.slide-export .timeline-content ul li { font-size: 0.8rem; }
+    body.slide-export .awards-timeline-title { font-size: 0.82rem; }
+    body.slide-export .courses-detail { margin-top: 1rem; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      text-align: center;
+      background: var(--surface);
+    }
+
+    footer p {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .timeline-item {
+        grid-template-columns: 140px 1fr;
+      }
+      .awards-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .experience-section,
+      .education-section,
+      .awards-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+      }
+      .course-row {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 8rem;
+      }
+      .hero-left {
+        align-items: center;
+      }
+      .hero-desc {
+        max-width: 500px;
+      }
+      .hero-photo {
+        width: 300px;
+        height: 380px;
+      }
+      .project-item {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .about-section,
+      .contact-section {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero,
+      .projects-section,
+      .about-section,
+      .contact-section,
+      .skills-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      nav,
+      footer {
+        display: none;
+      }
+
+      body {
+        font-size: 11pt;
+      }
+
+      .hero {
+        min-height: unset;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        page-break-after: avoid;
+      }
+
+      .hero-photo {
+        width: 200px;
+        height: 260px;
+      }
+
+      .about-section,
+      .skills-section,
+      .projects-section,
+      .experience-section,
+      .education-section,
+      .awards-section,
+      .contact-section {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .project-item,
+      .timeline-item,
+      .award-item {
+        page-break-inside: avoid;
+      }
+
+      .project-visual {
+        aspect-ratio: 16/10;
+      }
+
+      .courses-detail {
+        display: block;
+      }
+
+      .courses-detail summary {
+        display: none;
+      }
+
+      .courses-grid {
+        display: flex;
+        border-top: none;
+        padding: 0;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <span class="hero-greeting">Backend Developer</span>
+      <h1 class="hero-title">
+        <span class="line1">안녕하세요</span>
+        <span class="line2">조형우입니다.</span>
+      </h1>
+      <p class="hero-desc">
+        한 번 맡은 일은 <strong class="hero-em">끝까지, 정확하고 깔끔하게</strong> 마무리해야 마음이 놓이는 개발자입니다.<br>
+        <strong class="hero-em">머신비전에서 백엔드로.</strong> 기술을 습득하는 사람에서 <strong class="hero-em">시스템을 완성하는 사람</strong>으로.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">연락하기</a>
+        <div class="social-links">
+          <a href="https://github.com/jho17615" class="social-link" aria-label="GitHub" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://plaid-cereal-baf.notion.site/11a35b3b99b48027a144faaeebed3456" class="social-link" aria-label="Notion" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.047.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo"><img src="profile.png" alt="조형우 프로필 사진"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about-section" id="about">
+    <div class="section-header">
+      <div class="section-label">About</div>
+      <h2 class="section-title">ABOUT ME</h2>
+    </div>
+    <div class="about-body">
+      <p>"왜 앱은 이렇게 작동할까?"라는 호기심에서 IT를 시작했습니다.</p>
+      <p>AI 위험감지 시스템을 기획부터 구현까지 단독으로 완성하며 시스템을 끝까지 책임지는 경험을 쌓았고, 머신비전 기업에서 일하던 중 제가 진정 몰입하고 싶은 분야가 백엔드 개발임을 확신해 진로를 재설정했습니다. 이후 KOSTA DevOps 과정을 수료하며 Spring Boot 백엔드와 React/JSP 웹 구조에 대한 전문성을 다졌습니다.</p>
+      <div class="about-values">
+        <div class="about-value-item">
+          <span class="about-value-title">끈기</span>
+          <span class="about-value-desc">맡은 일은 정확하고 깔끔하게 끝까지 완성</span>
+        </div>
+        <div class="about-value-item">
+          <span class="about-value-title">겸손</span>
+          <span class="about-value-desc">부족함을 인정하고 채워가며 협업으로 보완</span>
+        </div>
+        <div class="about-value-item">
+          <span class="about-value-title">도전</span>
+          <span class="about-value-desc">편안함보다 성장을 택하는 진로 재설정</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills-section" id="skills">
+    <div class="section-header">
+      <div class="section-label">Stack</div>
+      <h2 class="section-title">Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="skill-cat-label">Backend</div>
+        <div class="skill-tags">
+          <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"> Java</span>
+          <span class="skill-tag"><i class="devicon-spring-original colored"></i> Spring Boot</span>
+          <span class="skill-tag"><i class="devicon-spring-original colored"></i> Spring Framework</span>
+          <span class="skill-tag"><i class="devicon-spring-original colored"></i> Spring MVC</span>
+          <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"> Servlet / JSP</span>
+          <span class="skill-tag"><i class="devicon-hibernate-plain colored"></i> JPA / Hibernate</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/springsecurity/6DB33F" alt="Spring Security"> Spring Security</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/openapiinitiative/6BA539" alt="RESTful API"> RESTful API</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/jsonwebtokens/475569" alt="JWT"> JWT</span>
+          <span class="skill-tag"><i class="devicon-django-plain colored"></i> Django</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI"> FastAPI</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Frontend</div>
+        <div class="skill-tags">
+          <span class="skill-tag"><i class="devicon-react-original colored"></i> React</span>
+          <span class="skill-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+          <span class="skill-tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5"> HTML5</span>
+          <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"> CSS3</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/axios/475569" alt="Axios"> Axios</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Database</div>
+        <div class="skill-tags">
+          <span class="skill-tag"><i class="devicon-mysql-original colored"></i> MySQL</span>
+          <span class="skill-tag"><i class="devicon-oracle-original colored"></i> Oracle</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Infra / DevOps</div>
+        <div class="skill-tags">
+          <span class="skill-tag"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS (EC2·RDS·S3·ACM·ALB)</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/apachetomcat/D22128" alt="Apache Tomcat"> Apache Tomcat</span>
+          <span class="skill-tag"><i class="devicon-docker-plain colored"></i> Docker</span>
+          <span class="skill-tag"><i class="devicon-jenkins-line colored"></i> Jenkins</span>
+          <span class="skill-tag"><i class="devicon-linux-plain colored"></i> Linux / WSL2</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">AI / Vision</div>
+        <div class="skill-tags">
+          <span class="skill-tag"><i class="devicon-python-plain colored"></i> Python</span>
+          <span class="skill-tag"><i class="devicon-pytorch-original colored"></i> PyTorch</span>
+          <span class="skill-tag"><i class="devicon-keras-plain colored"></i> Keras</span>
+          <span class="skill-tag"><i class="devicon-opencv-plain colored"></i> OpenCV</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/ultralytics/0B0B0B" alt="YOLO"> YOLO</span>
+          <span class="skill-tag">MediaPipe</span>
+          <span class="skill-tag">EasyOCR</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/ollama/475569" alt="Ollama"> Ollama</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/googlegemini/475569" alt="Gemma"> Gemma</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"> Java</span>
+          <span class="skill-tag"><i class="devicon-python-plain colored"></i> Python</span>
+          <span class="skill-tag"><i class="devicon-c-plain colored"></i> C</span>
+          <span class="skill-tag"><i class="devicon-cplusplus-plain colored"></i> C++</span>
+          <span class="skill-tag"><i class="devicon-csharp-plain colored"></i> C#</span>
+          <span class="skill-tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+          <span class="skill-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag"><i class="devicon-github-original colored"></i> Git / GitHub</span>
+          <span class="skill-tag"><i class="devicon-intellij-plain colored"></i> IntelliJ</span>
+          <span class="skill-tag"><i class="devicon-eclipse-plain colored"></i> Eclipse</span>
+          <span class="skill-tag"><i class="devicon-vscode-plain colored"></i> VS Code</span>
+          <span class="skill-tag"><i class="devicon-maven-plain colored"></i> Maven</span>
+          <span class="skill-tag">ERD Cloud</span>
+          <span class="skill-tag"><i class="devicon-oracle-original colored"></i> Oracle SQL Developer</span>
+          <span class="skill-tag"><img src="https://cdn.simpleicons.org/notion/475569" alt="Notion"> Notion</span>
+          <span class="skill-tag"><i class="devicon-figma-plain colored"></i> Figma</span>
+          <span class="skill-tag"><i class="devicon-slack-plain colored"></i> Slack</span>
+          <span class="skill-tag"><i class="devicon-confluence-plain colored"></i> Confluence</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="projects-section" id="projects">
+    <div class="section-header">
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Featured Projects</h2>
+    </div>
+
+    <div class="project-item">
+      <div class="project-visual colored"><img src="smart-factory.png" alt="Smart Factory Vision Monitor"></div>
+      <div class="project-info">
+        <h3>Smart Factory Vision Monitor</h3>
+        <p>스마트팩토리 비전 검사 데이터를 실시간 모니터링·제어하는 풀스택 시스템</p>
+        <div class="project-meta">
+          <div class="meta-row"><span class="meta-label">YEAR</span><span class="meta-value">2025</span></div>
+          <div class="meta-row"><span class="meta-label">ROLE</span><span class="meta-value">Full Stack Developer</span></div>
+          <div class="meta-row"><span class="meta-label">STACK</span><span class="meta-value">React · Spring Boot · Spring Security · MySQL · JWT · REST API · C#(WinForms)</span></div>
+          <div class="meta-row"><span class="meta-label">AWARD</span><span class="meta-value">★ 최우수상 · KOSTA · 2025</span></div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/jho17615/Smart-Factory-Vision-Monitor" class="project-link secondary" target="_blank">GitHub ↗</a>
+        </div>
+        <details class="project-details">
+          <summary>자세히 보기 ▾</summary>
+          <div class="project-details-body">
+            <div class="detail-section">
+              <h5>배경</h5>
+              <p>현장 비전 검사 결과가 로컬 PC에만 남아 관리자가 원격으로 불량 추이를 확인하거나 검사 기준을 변경하기 어려웠음. 웹 대시보드와 현장 측정 도구를 결합해 해결.</p>
+            </div>
+            <div class="detail-section">
+              <h5>주요 기능</h5>
+              <ul>
+                <li>실시간 대시보드 → 5초 폴링, 양품/불량 집계·합격률·분당 생산속도 자동 갱신, 가동 상태(RUNNING/STOPPED) 감지</li>
+                <li>NG 항목 클릭 시 차트 모드 자동 전환 → 수율 추이 ↔ 측정값+상한/하한선 차트, X축 시간·제품번호 전환</li>
+                <li>NG 필터링 및 상세 조회 → 클릭 하나로 불량 데이터 테이블·차트·임계값 연동</li>
+                <li>관리자 원격 임계값 제어 → 단건(PUT /thresholds/{itemName}) 및 일괄(PUT /thresholds/batch) API, 변경자·변경 시각 기록</li>
+                <li>JWT 기반 인증 및 역할별 권한 분리 (ROLE_ADMIN / ROLE_PRODUCER)</li>
+                <li>React 프론트엔드 ↔ Spring Boot 백엔드 서버 분리 아키텍처</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>기술적 도전 & 해결</h5>
+              <ul>
+                <li>이종 환경 연동 → Spring Boot에서 변경한 임계값을 MySQL에 저장, C# 프로그램이 StartThresholdSyncTimer()로 주기 polling해 자동 반영. 별도 통신 모듈 없이 DB 매개로 안정적 연동</li>
+                <li>통계 집계 정확도 → vertical_measurements와 quality_judgments를 row_index로 JOIN, 판정 데이터 없는 제품을 OK 간주하는 로직 직접 설계. 서비스 레이어에 자체 통계 검증 메서드로 데이터 불일치 감지</li>
+                <li>Spring Security + JWT → BCrypt 해시, HMAC-SHA 토큰 발급·검증 필터, STATELESS 구조. URL·HTTP 메서드 단위 권한 분리, 프론트 역할별 제어 UI 비활성화</li>
+                <li>C#/WinForms 단기 습득 → 공식 문서·예제로 MySQL 연동·CSV 임포트까지 완성. Java 객체지향 경험 이전 적용해 학습 곡선 단축</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>결과/의의</h5>
+              <ul>
+                <li>KOSTA 프로젝트 최우수상 수상</li>
+                <li>웹–데스크톱–DB를 연결하는 통합 시스템을 단독으로 완성</li>
+                <li>인증·권한 설계부터 이종 환경 연동, 인터랙티브 데이터 시각화까지 백엔드·프론트엔드 전반을 직접 구현</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-visual colored2"><img src="orderowl.png" alt="OrderOwl QR 주문 관리 시스템"></div>
+      <div class="project-info">
+        <h3>OrderOwl — QR 주문/매장 관리 시스템</h3>
+        <p>QR 기반 테이블 주문부터 매장·메뉴 관리까지 아우르는 풀스택 주문 시스템</p>
+        <div class="project-meta">
+          <div class="meta-row"><span class="meta-label">YEAR</span><span class="meta-value">2025</span></div>
+          <div class="meta-row"><span class="meta-label">ROLE</span><span class="meta-value">Full Stack Developer</span></div>
+          <div class="meta-row"><span class="meta-label">STACK</span><span class="meta-value">Java · JSP · MySQL · AWS EC2 · Docker</span></div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/jho17615/OrderOwl" class="project-link secondary" target="_blank">GitHub ↗</a>
+        </div>
+        <details class="project-details">
+          <summary>자세히 보기 ▾</summary>
+          <div class="project-details-body">
+            <div class="detail-section">
+              <h5>배경</h5>
+              <p>QR 스캔부터 주문 접수·매출 통계까지 이어지는 테이블 주문 시스템. Spring 없이 MVC 라우팅 구조를 직접 설계하고 팀 공통 아키텍처를 잡는 것이 핵심 과제였음.</p>
+            </div>
+            <div class="detail-section">
+              <h5>담당 영역</h5>
+              <p>공통 MVC 프레임워크 설계, 관리자 기능(매장·메뉴·QR·매출), DB 스키마</p>
+            </div>
+            <div class="detail-section">
+              <h5>주요 기능</h5>
+              <ul>
+                <li>QR 스캔으로 테이블·매장 자동 식별 및 비접촉 주문 처리</li>
+                <li>관리자 매장·메뉴·QR 코드 생성·수정·삭제 및 매출 통계 조회</li>
+                <li>Admin·Owner·Customer 3계층 역할 기반 접근 제어</li>
+                <li>매출 다중 시간 단위(일·주·월·시간) 집계 및 메뉴 Top3 랭킹</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>기술적 도전 & 해결</h5>
+              <ul>
+                <li>경량 MVC 직접 구현 → HandlerMappingListener가 actionMapping.properties를 읽어 Controller 등록, DispatcherServlet이 Method.invoke로 URL 기반 동적 디스패치</li>
+                <li>GET 파라미터·JSON Body 이중 처리 → BufferedReader로 raw body 읽기 → Gson 파싱 → request.setAttribute 전달</li>
+                <li>3계층 역할 분리 → Owner 로그인 시 세션에 user+store 객체 함께 저장, 이후 모든 요청에서 매장 컨텍스트 자동 바인딩</li>
+                <li>데이터 무결성 가드 → 매장·메뉴 삭제 시 countPendingOrders/isMenuInActiveOrders 선행 검사 후 IllegalStateException 차단</li>
+                <li>SQL을 dbQuery.properties로 외부화 → 재컴파일 없이 쿼리 수정 가능한 구조 확보</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>결과/의의</h5>
+              <ul>
+                <li>Spring이 추상화하는 Reflection 기반 MVC 디스패치와 HandlerMapping을 직접 구현하며 프레임워크 내부 동작을 코드 수준으로 이해</li>
+                <li>QR→테이블→매장 계층 구조로 매장별 독립 QR 운영, ON DUPLICATE KEY UPDATE로 재생성 시 기존 QR 원자적 교체</li>
+                <li>SQL 외부화·관심사 분리를 MyBatis 없이 직접 설계</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-visual colored3"><img src="ai-safety.jpg" alt="AI 산업현장 안전관리 위험감지 시스템"></div>
+      <div class="project-info">
+        <h3>산업 안전 비전 시스템 (AI Vision Safety Detection)</h3>
+        <p>YOLOv8 기반 산업 현장 위험요소 실시간 감지 시스템 (단독 개발)</p>
+        <div class="project-meta">
+          <div class="meta-row"><span class="meta-label">YEAR</span><span class="meta-value">2024</span></div>
+          <div class="meta-row"><span class="meta-label">ROLE</span><span class="meta-value">단독 개발 · 폴리텍</span></div>
+          <div class="meta-row"><span class="meta-label">STACK</span><span class="meta-value">YOLOv8 · Python · FastAPI · Spring Boot · OpenCV · MediaPipe</span></div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/jho17615/AI-vision-safety-detection" class="project-link secondary" target="_blank">GitHub ↗</a>
+        </div>
+        <details class="project-details">
+          <summary>자세히 보기 ▾</summary>
+          <div class="project-details-body">
+            <div class="detail-section">
+              <h5>배경</h5>
+              <p>산업 현장의 안전 관리는 여전히 관리자의 육안 감시에 의존하는 경우가 많아, 사각지대 발생과 순간적 부주의로 인한 사고 리스크가 상존함. 머신비전 엔지니어로서의 역량을 다지고자, YOLOv8 객체 탐지와 포즈 추정 기술을 결합하여 위험 행동을 실시간으로 자동 판별하는 산업 안전 비전 시스템을 단독으로 설계 및 구현.</p>
+            </div>
+            <div class="detail-section">
+              <h5>주요 기능</h5>
+              <ul>
+                <li>YOLOv8n 기반 위험 요소(작업자·사다리·헬멧) 실시간 탐지 및 바운딩 박스 시각화</li>
+                <li>Roboflow 이미지 전처리·클래스 재라벨링 커스텀 데이터셋 구성 및 학습 (2,218장, Epochs 100, Batch 64)</li>
+                <li>MediaPipe Pose 손목 랜드마크 좌표를 활용한 사다리 파지 동작 판별</li>
+                <li>인원 초과 / 헬멧 미착용 / 사다리 미파지 3가지 위반 조건 독립 판별 및 실시간 로그 기록</li>
+                <li>FastAPI 추론 서버 + Spring Boot 로그인 서버 연동으로 사용자 기반 이력 관리</li>
+                <li>사용자별 독립 카메라 스트림 구조로 다수 현장 동시 모니터링 지원</li>
+                <li>작업 시작·종료 시각 자동 기록, 관리자 페이지에서 이력 조회·삭제 가능</li>
+                <li>관리자 / 팀장 2단계 역할 기반 접근 제어(RBAC), 근태 기록, 공통 게시판, 긴급상황 119 연결 구현</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>기술적 도전 & 해결</h5>
+              <ul>
+                <li>YOLO 기본 모델에 헬멧·사다리 클래스 없음 → Roboflow로 직접 데이터 수집·커스텀 학습으로 전환, 도메인 특화 정확도 확보</li>
+                <li>헬멧·사람 클래스 데이터 비율 불균형 → 클래스별 재분류·재구성으로 재현율 저하 해결</li>
+                <li>추론 시 confidence 1.00 바운딩 박스 수백 개 출력 → 끈질긴 추적 끝에 Intel CPU 연산 호환성 문제 규명, AMD 환경 교체</li>
+                <li>'사다리를 잡는 동작' 판별 → mp.solutions.pose로 전신 랜드마크 추출, 손목 좌표와 사다리 바운딩 박스 위치 관계로 파지 여부 2단계 판별</li>
+                <li>운영 중 감지 조건 변경 불가 → 추론 서버가 30초 주기로 DB 폴링해 시스템 재시작 없이 설정 반영</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>결과/의의</h5>
+              <ul>
+                <li>Google Colab 학습 → WSL2 서버 배포까지 데이터 수집·라벨링·모델 학습·백엔드 연동 AI 시스템 전 과정 단독 완성</li>
+                <li>소프트웨어를 넘어 하드웨어(CPU 아키텍처) 레벨까지 파고들어 원인 불명의 현상을 규명한 디버깅 경험</li>
+                <li>관리자가 웹에서 설정을 변경하면 추론 서버에 최대 30초 이내 자동 반영되는 production-ready 아키텍처 구성</li>
+                <li>다중 현장 동시 모니터링·RBAC·작업 이력 자동 기록까지 갖춘 산업 안전 관리 플랫폼으로 발전 가능</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-visual colored4"><img src="smartdocsumm.png" alt="SmartDocSumm 문서 인식 분류 자동화"></div>
+      <div class="project-info">
+        <h3>SmartDocSumm — 문서 인식·분류 자동화 시스템</h3>
+        <p>생성형 AI(Ollama·Gemma) 기반 문서 텍스트 추출·분류·요약 자동화 웹 시스템</p>
+        <div class="project-meta">
+          <div class="meta-row"><span class="meta-label">YEAR</span><span class="meta-value">2026</span></div>
+          <div class="meta-row"><span class="meta-label">ROLE</span><span class="meta-value">더다올디앤씨 인턴십 · 백엔드 / 프론트엔드</span></div>
+          <div class="meta-row"><span class="meta-label">STACK</span><span class="meta-value">FastAPI · React · TypeScript · Ollama · Gemma · EasyOCR · SQLite · Docker</span></div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/jho17615/SmartDocSumm" class="project-link secondary" target="_blank">GitHub ↗</a>
+        </div>
+        <details class="project-details">
+          <summary>자세히 보기 ▾</summary>
+          <div class="project-details-body">
+            <div class="detail-section">
+              <h5>배경</h5>
+              <p>PDF·DOCX·HWP·PPTX 등 이기종 문서를 업로드하면 텍스트 추출 → 카테고리 분류 → AI 요약 → DB 저장까지 자동으로 처리하는 풀스택 문서 분석 시스템을 단독 설계·구현. AI 추론(로컬 LLM)의 긴 처리 시간을 사용자가 체감하지 않도록 실시간 진행률 피드백과 즉시 취소 가능한 처리 안정성에 집중.</p>
+            </div>
+            <div class="detail-section">
+              <h5>담당 영역</h5>
+              <p>SSE 기반 실시간 처리 파이프라인, HWP 바이너리 파서, 프론트엔드 인증·대시보드 전반 (FastAPI + React/TypeScript + SQLite)</p>
+            </div>
+            <div class="detail-section">
+              <h5>주요 기능</h5>
+              <ul>
+                <li>SSE 5단계 진행률 스트리밍 → 파일 수신(10%) → 텍스트 추출(50%) → AI 분류(65%) → 요약(90%) → DB 저장(100%) 실시간 이벤트 전송</li>
+                <li>이중 취소 구조 → uuid task_id를 응답 헤더로 전달, AbortController(SSE 끊기) + cancel_flags(백엔드 루프 탈출) 동시 실행</li>
+                <li>HWP 파서 → OLE 컨테이너 오픈·zlib deflate 압축 해제·32bit 레코드 헤더 비트필드 파싱, OCR 전처리(LANCZOS 2배 업스케일·Contrast×1.8·Sharpness×2.0), CJK 가비지 필터로 인코딩 오염 해결</li>
+                <li>카테고리 분류 2단계 전략 → 1단계: 파일명 키워드 힌트 매칭으로 LLM 호출 없이 즉시 분류, 판단 불가 시에만 2단계 LLM 사용</li>
+                <li>Map-Reduce 요약 + LLM 파라미터 튜닝 → ThreadPoolExecutor(3) 병렬 청크 요약(temp=0.05) → 카테고리별 포맷 가이드 7종 최종 요약(temp=0.1), 정규식 후처리로 출력 품질 안정화</li>
+                <li>프론트엔드 → 쿠키 자동 로그인, fetch() + getReader() + TextDecoder SSE 수동 수신, 드래그&드롭·300ms 디바운싱·스마트 ellipsis 페이지네이션</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>기술적 도전 & 해결</h5>
+              <ul>
+                <li>HWP 지원 라이브러리 부재 → HWP 포맷 스펙 직접 분석해 OLE·zlib·비트필드 구현, OCR 전처리(업스케일·대비)와 CJK 필터로 저화질·인코딩 오염까지 대응</li>
+                <li>로컬 LLM 수십 초 추론 중 취소 불가 → SSE 헤더에 task_id 삽입, AbortController + cancel_flags 두 경로 동시 실행해 진행 단계 어디서든 즉시 종료</li>
+                <li>EventSource POST·쿠키 인증 미지원 → fetch() + response.body.getReader() + TextDecoder로 SSE 수동 파싱, 기존 쿠키 인증 흐름과 완전 호환</li>
+                <li>LLM 호출 비용·지연 최소화 → 파일명 키워드 힌트 1차 판단으로 분류 가능한 경우 LLM 아예 미호출, 분류 단계 지연 제거</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>결과/의의</h5>
+              <ul>
+                <li>공개 라이브러리가 없는 HWP 포맷을 바이너리 스펙 분석으로 직접 지원해 PDF·DOCX와 동등한 추출 품질 달성</li>
+                <li>AI 처리의 긴 대기를 SSE 단계별 피드백 + 이중 즉시 취소 구조로 UX 저하 없이 해소</li>
+                <li>2단계 분류 전략 + LLM 파라미터 튜닝 + 출력 후처리로 로컬 소형 모델(qwen2.5:3b) 환경에서도 카테고리별 구조화된 요약 안정화</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-visual colored2"><img src="pothole.jpg" alt="포트홀 탐지 시스템"></div>
+      <div class="project-info">
+        <h3>포트홀 탐지 시스템 (Pothole Detection)</h3>
+        <p>YOLOv5 기반 도로 포트홀 실시간 탐지 및 시각화 웹 시스템</p>
+        <div class="project-meta">
+          <div class="meta-row"><span class="meta-label">YEAR</span><span class="meta-value">2023</span></div>
+          <div class="meta-row"><span class="meta-label">ROLE</span><span class="meta-value">팀 프로젝트 (4인) · 데이터 전처리 / AI 학습</span></div>
+          <div class="meta-row"><span class="meta-label">STACK</span><span class="meta-value">YOLOv5 · Python · Django · Java/JSP · MySQL · OpenCV · Kakao Map API</span></div>
+        </div>
+        <details class="project-details">
+          <summary>자세히 보기 ▾</summary>
+          <div class="project-details-body">
+            <div class="detail-section">
+              <h5>배경</h5>
+              <p>도로 위 포트홀은 차량 파손·사고를 유발하는 안전 문제지만, 사람이 일일이 점검·신고하는 방식은 한계가 있다. 차량 블랙박스·도로 영상에서 포트홀을 자동으로 탐지하고, 탐지 결과를 위치·날짜별로 관리·시각화하는 시스템을 목표로 했다.</p>
+            </div>
+            <div class="detail-section">
+              <h5>주요 기능</h5>
+              <ul>
+                <li>YOLOv5 기반 포트홀 실시간 탐지 (약 25,000장 학습, 전이학습 적용)</li>
+                <li>탐지 결과 리스트(페이지네이션·모달) 조회</li>
+                <li>달력 기반 일자별 탐지 건수 표시</li>
+                <li>Kakao Map API 기반 탐지 위치 지도 시각화</li>
+                <li>탐지 데이터 기반 지역별 통계 그래프 (CSV → matplotlib)</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>기술적 도전 & 해결</h5>
+              <ul>
+                <li>데이터 전처리 → 전체 약 20만 장 규모 데이터셋에서 파일명 매칭·해상도(1280×720) 필터링·YOLO 라벨 포맷 변환·416×416 리사이즈를 거쳐 학습용 약 2.6만 장을 선별·정제하는 파이프라인 단독 구현</li>
+                <li>YOLOv5 모델 학습 → 팀원들과 학습 데이터 구성, 환경 변수 설정을 진행하고 데이터 규모·전이학습 적용 여부를 바꿔가며 성능 비교</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>결과/의의</h5>
+              <ul>
+                <li>첫 협업 프로젝트로 처음 다루는 AI 분야에서 데이터 전처리부터 학습까지 직접 경험</li>
+                <li>Colab RAM 제한·긴 학습 시간 등 실제 AI 프로젝트의 제약을 체감하며 사전 설계와 데이터 분류 체계의 중요성을 학습</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-visual colored5"><img src="mfc-vision.png" alt="MFC 머신비전 제품 불량 검출기"></div>
+      <div class="project-info">
+        <h3>MFC 머신비전 제품 불량 검출기</h3>
+        <p>C++/MFC 기반 제품 표면 불량 검출 데스크톱 도구</p>
+        <div class="project-meta">
+          <div class="meta-row"><span class="meta-label">YEAR</span><span class="meta-value">2024</span></div>
+          <div class="meta-row"><span class="meta-label">ROLE</span><span class="meta-value">개인 프로젝트</span></div>
+          <div class="meta-row"><span class="meta-label">STACK</span><span class="meta-value">C++ · MFC · OpenCV</span></div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/jho17615/MFC-Machine-Vision-Product-Defect-Detector" class="project-link secondary" target="_blank">GitHub ↗</a>
+        </div>
+        <details class="project-details">
+          <summary>자세히 보기 ▾</summary>
+          <div class="project-details-body">
+            <div class="detail-section">
+              <h5>배경</h5>
+              <p>머신비전 엔지니어로서의 역량을 다지고자, 카메라와 컴퓨터 비전 기술을 결합하여 반복적이고 객관적인 검사가 가능한 데스크톱 머신비전 검사 시스템을 단독으로 설계 및 구현.</p>
+            </div>
+            <div class="detail-section">
+              <h5>주요 기능</h5>
+              <ul>
+                <li>실시간 카메라 스트림 표시 및 자동 검사 영역 추출</li>
+                <li>그레이스케일 → 가우시안 블러 → 이진화 → 윤곽선 검출 → 2번째 큰 사각형 자동 검출 후 수평 정렬 및 방향 보정(180° 회전)</li>
+                <li>4점 클릭 기반 원근 보정 캘리브레이션 → getPerspectiveTransform으로 호모그래피 행렬 산출 후 warpPerspective로 이미지 보정</li>
+                <li>패턴 템플릿 저장·삭제·목록 관리 및 다중 패턴 동시 매칭 (TM_CCOEFF_NORMED, 유사도 0.9 이상 양품 판정)</li>
+                <li>패턴 매칭 결과 양품/불량 판정 및 커스텀 드로 리스트 시각화, 결과 클릭 시 검출 영역 이미지 저장</li>
+                <li>포커스·밝기·대비·채도·노출 정밀 수동 조절(슬라이더) + 자동 초기화</li>
+                <li>카메라 파라미터 프리셋 저장/불러오기/삭제 (파일 퍼시스턴스)</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>기술적 도전 & 해결</h5>
+              <ul>
+                <li>MFC Dialog UI에서 OpenCV Mat 렌더링 → BITMAPINFO 직접 관리 + CStatic DIB 그리기, 16ms 타이머로 카메라 프레임 루프 구현</li>
+                <li>조명·배경 변화 오검출 → 2번째 큰 사각형 기준 + 빨간색 기준점 방향 판단 2단계 필터링으로 안정성 확보</li>
+                <li>빨간색 기준점 오검출 → HSV 색상환에서 빨간색이 0°와 180° 양쪽에 걸치는 불연속 특성을 이중 범위 마스크(0–10°, 160–179°)로 처리</li>
+                <li>다중 패턴·UI 스레드 충돌 방지 → 상태 플래그로 재진입 차단 + 결과를 UI 스레드에서만 업데이트하는 단방향 흐름 설계</li>
+                <li>슬라이더 값과 CAP_PROP_* 범위 불일치 → 0–255 값을 노출·초점 범위에 맞게 선형 매핑·반전 처리로 직관적 UX 제공</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>결과/의의</h5>
+              <ul>
+                <li>C++/MFC/OpenCV를 처음 결합해 카메라 제어·이미지 프로세싱·UI를 단일 애플리케이션으로 완성</li>
+                <li>자동 영역 추출 → 패턴 저장 → 매칭 실행의 전체 검사 파이프라인 독립 구현</li>
+                <li>머신비전 시스템의 하드웨어 제어부터 UI까지 전 계층을 단독으로 설계·구현하며 실무 적용 가능한 역량 확보</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-visual colored"><img src="mediapipe.png" alt="MediaPipe 손가락 숫자 인식"></div>
+      <div class="project-info">
+        <h3>MediaPipe 손가락 숫자 인식</h3>
+        <p>MediaPipe 손 관절 추적 + Random Forest 기반 0~9 제스처 실시간 인식 ML 파이프라인</p>
+        <div class="project-meta">
+          <div class="meta-row"><span class="meta-label">YEAR</span><span class="meta-value">2024</span></div>
+          <div class="meta-row"><span class="meta-label">ROLE</span><span class="meta-value">개인 프로젝트</span></div>
+          <div class="meta-row"><span class="meta-label">STACK</span><span class="meta-value">Python · MediaPipe · OpenCV · scikit-learn · Random Forest</span></div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/jho17615/MediaPipe-handnumber" class="project-link secondary" target="_blank">GitHub ↗</a>
+        </div>
+        <details class="project-details">
+          <summary>자세히 보기 ▾</summary>
+          <div class="project-details-body">
+            <div class="detail-section">
+              <h5>배경</h5>
+              <p>터치스크린은 촉각적 구분이 없어 시각장애인의 정보 접근성을 심각하게 제한함. 음성 안내는 보안 노출 위험이 있어, 카메라와 컴퓨터 비전 기술을 활용한 대안적 인터페이스를 고안함. 화면을 보지 않고도 손가락 제스처만으로 0~9를 정확히 입력할 수 있는 비접촉 인식 시스템을 단독 설계·구현함.</p>
+            </div>
+            <div class="detail-section">
+              <h5>주요 기능</h5>
+              <ul>
+                <li>MediaPipe Hands로 손 랜드마크 21개(x·y·z)를 실시간 추출, 양손 126차원 특징 벡터 생성</li>
+                <li>0–5는 한 손, 6–9는 두 손을 요구하는 제스처 규칙 적용 및 자동 판별</li>
+                <li>제스처별 1,000샘플 웹캠 직접 수집, 총 10,000샘플 구축 + JSON 파일 퍼시스턴스 (main.py)</li>
+                <li>실시간 좌우 반전(Mirror Flip)으로 사용자가 거울처럼 직관적으로 손 위치 확인 가능</li>
+                <li>Random Forest(100 트리) 학습 시 재현 가능한 80/20 분리(random_state=42) 및 트리 수별 학습/검증 정확도 그래프 생성 (STU.py)</li>
+                <li>클래스(0–9)별 Precision·Recall·F1-score를 classification_report로 출력해 숫자별 오인식 패턴 분석</li>
+                <li>학습된 모델을 실시간 로드하여 제스처 클래스와 신뢰도(Confidence)를 화면에 오버레이 (exe.py)</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>기술적 도전 & 해결</h5>
+              <ul>
+                <li>한 손/두 손 혼재 시 특징 벡터 길이 불일치 → 두 번째 손이 없을 때 63차원(21×3)을 0으로 패딩하여 항상 126차원 고정</li>
+                <li>6–9 제스처에서 한 손만 잡힐 때 오인식 → 수집 단계에서 두 손 랜드마크가 모두 감지된 프레임만 저장하도록 조건 분기</li>
+                <li>트리 수 증가에 따른 과적합 추이 확인 → 1→100 트리를 반복 학습하며 단계별 train/test 정확도를 기록하고 그래프로 시각화</li>
+                <li>모델 파일 구조 버전 호환 → joblib.load 결과가 dict인지 단순 모델인지 분기 처리로 하위 호환 유지</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h5>결과/의의</h5>
+              <ul>
+                <li>MediaPipe → 특징 추출 → Random Forest → 실시간 추론의 전체 ML 파이프라인을 단독 구현</li>
+                <li>클래스별 정밀 평가(Precision·Recall·F1)로 단순 정확도를 넘어 숫자별 오인식 취약 구간까지 정량 분석</li>
+                <li>데이터 수집(main.py) · 모델 학습(STU.py) · 실시간 인식(exe.py)의 역할 분리로 각 단계 독립 실행 가능</li>
+                <li>향후 웹 대시보드 연동 시 exe.py를 현장 측 인식 엔드포인트로 활용 가능한 확장 구조</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Experience -->
+  <section class="experience-section" id="experience">
+    <div class="section-header">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-period">2024.11 — 2025.07</div>
+        <div class="timeline-content">
+          <h4>㈜인스케이프</h4>
+          <div class="timeline-role">AI비전솔루션 / 사원</div>
+          <ul>
+            <li>신규 장비 도입 프로젝트 단독 수행, 측정 방법·레시피 약 4개월간 개발</li>
+            <li>신규 장비 작업 표준(SOP) 재정립, 정확성·안정성 확보 및 현장 안정화</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">2022.01 — 2022.04</div>
+        <div class="timeline-content">
+          <h4>유현글로벌</h4>
+          <div class="timeline-role">인사팀 / 주임</div>
+          <ul>
+            <li>약 100명 직원 관리 및 관리·마케팅 업무 담당</li>
+            <li>다양한 이해관계자와 협력하며 조직 효율성 개선</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="education-section" id="education">
+    <div class="section-header">
+      <div class="section-label">Education</div>
+      <h2 class="section-title">학력 · 교육</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-period">2025.07 — 2025.12</div>
+        <div class="timeline-content">
+          <h4>한국소프트웨어기술진흥협회 (KOSTA)</h4>
+          <div class="timeline-role">Java 기반 DevOps 개발자 양성과정</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">2024.02 — 2024.12</div>
+        <div class="timeline-content">
+          <h4>한국폴리텍대학 분당융합기술교육원</h4>
+          <div class="timeline-role">AI응용 소프트웨어과</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">2023.05 — 2023.10</div>
+        <div class="timeline-content">
+          <h4>두드림컴퓨터아카데미</h4>
+          <div class="timeline-role">영상지능기반 AI 전문가</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">2015.03 — 2022.02</div>
+        <div class="timeline-content">
+          <h4>남서울대학교</h4>
+          <div class="timeline-role">컴퓨터소프트웨어학과 (졸업)</div>
+        </div>
+      </div>
+    </div>
+    <details class="courses-detail">
+      <summary>교육 이수 내용 — 총 1,533시간 펼치기</summary>
+      <div class="courses-grid">
+        <div class="course-row">
+          <span class="course-cat">프로그래밍 기초</span>
+          <span class="course-items">C (70h) · C++ (56h) · Java (110h)</span>
+        </div>
+        <div class="course-row">
+          <span class="course-cat">웹 개발</span>
+          <span class="course-items">웹 백엔드 (70h) · 웹 프론트엔드 (70h) · Django (60h) · Spring (40h)</span>
+        </div>
+        <div class="course-row">
+          <span class="course-cat">AI / 머신러닝</span>
+          <span class="course-items">AI의 이해 (20h) · AI 파이썬 (40h) · 머신러닝/딥러닝 (40h) · 파이토치 영상처리 (90h) · AI 객체탐지 시스템 (300h)</span>
+        </div>
+        <div class="course-row">
+          <span class="course-cat">DB / 데이터분석</span>
+          <span class="course-items">DB (35h) · MySQL (40h) · 데이터 분석 (40h) · 데이터 가공·시각화 (40h)</span>
+        </div>
+        <div class="course-row">
+          <span class="course-cat">컴퓨터비전</span>
+          <span class="course-items">OpenCV C++ (70h) · OpenCV 파이썬 딥러닝 (90h)</span>
+        </div>
+        <div class="course-row">
+          <span class="course-cat">시스템 / 네트워크</span>
+          <span class="course-items">Linux 기초 (70h) · Cloud/AWS (70h) · Ubuntu (40h)</span>
+        </div>
+        <div class="course-row">
+          <span class="course-cat">임베디드 / IoT</span>
+          <span class="course-items">MFC (70h) · 엣지 컴퓨팅 (75h) · IoT 코딩 (70h)</span>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- Awards & Certifications -->
+  <section class="awards-section" id="awards">
+    <div class="section-header">
+      <div class="section-label">Achievements</div>
+      <h2 class="section-title">수상 · 자격</h2>
+    </div>
+    <div class="awards-timeline">
+      <div class="awards-timeline-item is-award">
+        <div class="awards-timeline-date">2025.12</div>
+        <div class="awards-timeline-content">
+          <div>
+            <div class="awards-timeline-title">프로젝트 최우수상</div>
+            <div class="awards-timeline-sub">Smart Factory Vision Monitor · 한국소프트웨어기술진흥협회 (KOSTA)</div>
+          </div>
+          <span class="awards-badge">🏆 수상</span>
+        </div>
+      </div>
+      <div class="awards-timeline-item">
+        <div class="awards-timeline-date">2016.08</div>
+        <div class="awards-timeline-content">
+          <div class="awards-timeline-title">운전면허 1종 보통</div>
+        </div>
+      </div>
+      <div class="awards-timeline-item">
+        <div class="awards-timeline-date">2014.08</div>
+        <div class="awards-timeline-content">
+          <div class="awards-timeline-title">ITQ OA Master</div>
+        </div>
+      </div>
+      <div class="awards-timeline-item">
+        <div class="awards-timeline-date">2014.07</div>
+        <div class="awards-timeline-content">
+          <div class="awards-timeline-title">컴퓨터활용능력 2급</div>
+        </div>
+      </div>
+      <div class="awards-timeline-item">
+        <div class="awards-timeline-date">2014.06</div>
+        <div class="awards-timeline-content">
+          <div class="awards-timeline-title">정보처리기능사</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section" id="contact">
+    <div class="section-header">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">연락하기</h2>
+    </div>
+    <p class="contact-tagline">이메일로 연락 주시면 빠르게 답변드리겠습니다.</p>
+    <div class="contact-info">
+      <div class="contact-row">
+        <span class="contact-key">Email</span>
+        <a href="mailto:jho17615@naver.com" class="contact-val contact-link">jho17615@naver.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-key">Tel</span>
+        <span class="contact-val">010-9686-3310</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-key">GitHub</span>
+        <a href="https://github.com/jho17615" class="contact-val contact-link" target="_blank">github.com/jho17615</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-key">Notion</span>
+        <a href="https://plaid-cereal-baf.notion.site/11a35b3b99b48027a144faaeebed3456" class="contact-val contact-link" target="_blank">portfolio.notion.site/jho17615</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-key">Location</span>
+        <span class="contact-val">경기 수원시 영통구 동탄원천로 881번길 19</span>
+      </div>
+    </div>
+    <div class="contact-socials">
+      <a href="https://github.com/jho17615" class="contact-social" aria-label="GitHub" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://plaid-cereal-baf.notion.site/11a35b3b99b48027a144faaeebed3456" class="contact-social" aria-label="Notion" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.047.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 조형우. Backend Developer.</p>
+  </footer>
+
+</body>
+</html>
