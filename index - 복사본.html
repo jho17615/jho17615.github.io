@@ -945,18 +945,16 @@
       display: grid;
       grid-template-columns: 260px 1fr;
       grid-template-rows: auto auto;
-      gap: 1rem 1.5rem;
-      padding: 1.6rem 0;
+      gap: 0.6rem 1.5rem;
+      padding: 1rem 0;
       align-items: start;
-      border-top: none !important;
-      border-bottom: none !important;
     }
     body.slide-export .project-visual { grid-row: 1; grid-column: 1; }
     body.slide-export .project-info  { grid-row: 1; grid-column: 2; }
-    body.slide-export .project-info h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
-    body.slide-export .project-info > p { font-size: 0.88rem; margin-bottom: 0.4rem; }
-    body.slide-export .project-meta { gap: 0.2rem; margin-bottom: 0.4rem; }
-    body.slide-export .meta-row { font-size: 0.8rem; }
+    body.slide-export .project-info h3 { font-size: 1.15rem; margin-bottom: 0.3rem; }
+    body.slide-export .project-info > p { font-size: 0.83rem; margin-bottom: 0.3rem; }
+    body.slide-export .project-meta { gap: 0.15rem; margin-bottom: 0.3rem; }
+    body.slide-export .meta-row { font-size: 0.74rem; }
     body.slide-export .project-links { margin-bottom: 0; }
 
     /* 상세: 전체 너비 3열, 배경·담당 단락 섹션 숨김 */
@@ -972,21 +970,21 @@
       display: grid !important;
       grid-template-columns: 1fr 1fr 1fr;
       align-items: start;
-      gap: 0 1rem;
-      border-top: none !important;
-      padding: 0.6rem 0 0;
+      gap: 0 0.9rem;
+      border-top: 1px solid var(--border);
+      padding: 0.45rem 0 0;
     }
     body.slide-export .project-details-body .detail-section:has(p) { display: none; }
     body.slide-export .detail-section { align-self: start; }
     body.slide-export .detail-section h5 {
-      font-size: 0.78rem; font-weight: 700;
-      color: var(--primary); margin-bottom: 0.25rem;
-      padding-bottom: 0;
-      border-bottom: none !important;
+      font-size: 0.68rem; font-weight: 700;
+      color: var(--primary); margin-bottom: 0.2rem;
+      padding-bottom: 0.12rem;
+      border-bottom: 1px solid var(--border);
     }
-    body.slide-export .detail-section ul { gap: 0.18rem; }
-    body.slide-export .detail-section ul li { font-size: 0.78rem; line-height: 1.45; }
-    body.slide-export .detail-section ul li:nth-child(n+9) { display: none; }
+    body.slide-export .detail-section ul { gap: 0.06rem; }
+    body.slide-export .detail-section ul li { font-size: 0.7rem; line-height: 1.36; }
+    body.slide-export .detail-section ul li:nth-child(n+6) { display: none; }
 
     body.slide-export .timeline-item { padding: 0.85rem 0; }
     body.slide-export .timeline-content h4 { font-size: 0.9rem; }
